@@ -16,9 +16,9 @@ function ProductEdit(props) {
     return (
         <div
             className={`product ${emStock ? "in-stock" : "out-of-stock"}`}>
-            <input className='nome' onChange={onChangeName} value={nome}></input> 
-            <input className='preco' onChange={onChangePreco} value={preco}></input>
-            <input className='categoria' onChange={onChangeCategoria} value={categoria}></input>
+            <input className='nome' onChange={(e) => onChangeName(e)} value={nome}></input> 
+            <input className='preco' onChange={(e) => onChangePreco(e)} value={preco}></input>
+            <input className='categoria' onChange={(e) => onChangeCategoria(e)} value={categoria}></input>
 
             <button onClick={() => updateProduct(id)}>
                 Update Product

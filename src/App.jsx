@@ -111,21 +111,21 @@ function App() {
     <div className='products'>
       {products.map(product => {
         if(edit && product.id === editProdId){
-          <ProductEdit 
+          return (<ProductEdit 
             key={product.id}
             updateProduct={updateProduct}
             onChangeName={onChangeName}
             onChangePreco={onChangePreco}
             onChangeCategoria={onChangeCategoria}
-          />
+          />)
         } else {
-          <Product
+          return (<Product
             key={product.id}
             product={product}
             toggleStock={toggleStock}
             eliminarProduct={eliminarProduct}
             editProduct={editProduct}
-          />
+          />)
         }
       }
         )}
