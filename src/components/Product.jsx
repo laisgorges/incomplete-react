@@ -5,7 +5,8 @@ function Product(props) {
     const {
         product: { id, nome, preco, categoria, emStock },
         toggleStock,
-        eliminarProduct
+        eliminarProduct,
+        editProduct
     } = props
 
     return (
@@ -21,6 +22,10 @@ function Product(props) {
 
             <button className='delete' onClick={() => eliminarProduct(id)}>
                 Eliminar
+            </button>
+
+            <button onClick={() => editProduct(id)}>
+                Edit
             </button>
         </div>
     )

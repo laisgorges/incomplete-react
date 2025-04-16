@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import productsJson from './assets/products.json'
 import Product from './components/Product'
+import ProductEdit from './components/ProductEdit'
 
 function App() {
 
@@ -10,10 +11,32 @@ function App() {
   const [preco, setPreco] = useState("")
   const [categoria, setCategoria] = useState("")
   const [message, setMessage] = useState("")
+  const [edit, setEdit] = useState(false)
+  const [editProdId, setEditProdId] = useState(0)
 
   const eliminarProduct = (productId) => {
     setProducts(products.filter(product => product.id !== productId))
   }
+
+  const editProduct = (productId) => {
+    setEdit(true);
+    setEditProdId(productId);
+  }
+
+  const updateProduct = (productId) => {
+    products.map((product) => {
+      if(product.id === productId){
+        product.nome = nome;
+        product.preco = preco;
+        product.categoria = categoria;
+        product.message = message;
+      }
+    })
+  }
+
+  const onChangeName = (e) => setNome(e.target.value)
+  const onChangePreco = (e) => setPreco(e.target.value)
+  const onChangeCategoria = (e) => setCategoria(e.target.value)
 
   const toggleStock = (productId) => {
 
@@ -84,14 +107,28 @@ function App() {
     </form>
 
 
+
     <div className='products'>
-      {products.map(product =>
-        <Product
-          key={product.id}
-          product={product}
-          toggleStock={toggleStock}
-          eliminarProduct={eliminarProduct}
-        />)}
+      {products.map(product => {
+        if(edit && product.id === editProdId){
+          <ProductEdit 
+            key={product.id}
+            updateProduct={updateProduct}
+            onChangeName={onChangeName}
+            onChangePreco={onChangePreco}
+            onChangeCategoria={onChangeCategoria}
+          />
+        } else {
+          <Product
+            key={product.id}
+            product={product}
+            toggleStock={toggleStock}
+            eliminarProduct={eliminarProduct}
+            editProduct={editProduct}
+          />
+        }
+      }
+        )}
     </div>
   </div>
   )
