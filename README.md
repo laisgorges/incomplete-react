@@ -13,6 +13,7 @@
 ---
 
 Para isso, terão de:
+
 1. Criar um botão (em cada produto)
 2. Criar um estado dentro do produto para saber se se está a editar
 3. O botão deve alterar esse estado
@@ -25,8 +26,13 @@ Para isso, terão de:
 Devem submeter, no Teams, o link do vosso repositório, com o ficheiro README (podem eliminar este ou acrescentar no final).
 
 Critérios de Avaliação:
+
 - 80%: Funcionalidade do exerício
 - 10%: Ficheiro README com o link
 - 10%: Todos os utilizadores submeteram o mesmo link
+
+## Link to repo forked
+
+[forked](https://github.com/HCorte/incomplete-react)
 
 ## Boa Sorte
