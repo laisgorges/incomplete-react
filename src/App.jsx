@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import productsJson from './assets/products.json'
 import Product from './components/Product'
+import ProductEdit from './components/ProductEdit'
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
   const [preco, setPreco] = useState("")
   const [categoria, setCategoria] = useState("")
   const [message, setMessage] = useState("")
+  const [edit, setEdit] = useState(false)
+  const [editProdId, setEditProdId] = useState(0)
 
   const eliminarProduct = (productId) => {
     setProducts(products.filter(product => product.id !== productId))
@@ -91,6 +94,7 @@ function App() {
 
       <button type='submit' className='add'> Adicionar </button>
     </form>
+
 
 
     <div className='products'>
