@@ -15,11 +15,21 @@ function App() {
     setProducts(products.filter(product => product.id !== productId))
   }
 
+  const editarProduct = (productId) => {
+    const product = products.find(product => product.id === productId)
+    
+  }
+
+  const atualizarProduct = (id, novosDados) => {
+    setProducts(products.map(product =>
+      product.id === id ? { ...product, ...novosDados } : product
+    ));
+  };
+
   const toggleStock = (productId) => {
 
     const productsCopy = [...products]
 
-    // Encontrar o product com o id que queremos alterar
     const productToToggle = productsCopy.find(product => product.id === productId)
     productToToggle.emStock = !productToToggle.emStock
 
@@ -28,7 +38,6 @@ function App() {
   }
 
   const addProduct = (nome, preco, categoria) => {
-    // adiciona um botão com dados dummy
 
     const newProduct = {
       id: Date.now(),
@@ -91,6 +100,7 @@ function App() {
           product={product}
           toggleStock={toggleStock}
           eliminarProduct={eliminarProduct}
+          atualizarProduct={atualizarProduct}
         />)}
     </div>
   </div>
